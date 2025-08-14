@@ -12,6 +12,8 @@ import time
 import json
 import tempfile
 
+from model_configuration import ollama_model_list
+
 # Page configuration
 st.set_page_config(
     page_title="Multimodal RAG Playground",
@@ -78,7 +80,7 @@ def process_pdf(uploaded_file, embeddings):
 
 def get_response_all_models(query, retriever):
     """Query all models and return JSON results"""
-    model_list = ["gpt-oss","qwen3","phi4:14b","llama3.1:8b","gemma3"]
+    model_list = ollama_model_list
     print(f"[QUERY] Starting multi-model query: '{query}'")
     print(f"[QUERY] Models to process: {model_list}")
     
